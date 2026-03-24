@@ -1,0 +1,1139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Beaurev Global — A Fresh Perspective</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #f5f0e2;
+    --surface: #faf7f0;
+    --surface2: #ede8d8;
+    --border: #d9d0b8;
+    --text: #141b3d;
+    --text2: #3a4468;
+    --text3: #8a90aa;
+    --rose: #b8922a;
+    --rose-light: #f5eedc;
+    --rose-mid: #d4ae62;
+    --sage: #1e2a5e;
+    --sage-light: #e8ecf5;
+    --gold: #b8922a;
+    --gold-light: #f5eedc;
+    --ink: #141b3d;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  /* ── COVER ── */
+  .cover {
+    min-height: 100vh;
+    background: var(--ink);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 4rem 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cover::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 50% at 20% 30%, rgba(184,146,42,0.15) 0%, transparent 70%),
+      radial-gradient(ellipse 50% 60% at 80% 70%, rgba(30,42,94,0.4) 0%, transparent 70%);
+  }
+
+  .cover-ornament {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 11px;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--rose-mid);
+    margin-bottom: 2.5rem;
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .cover-ornament::before,
+  .cover-ornament::after {
+    content: '';
+    width: 40px;
+    height: 1px;
+    background: var(--rose-mid);
+    opacity: 0.5;
+  }
+
+  .cover-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(52px, 8vw, 88px);
+    font-weight: 300;
+    color: white;
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+    margin-bottom: 1rem;
+    position: relative;
+  }
+
+  .cover-title em {
+    font-style: italic;
+    color: var(--rose-mid);
+  }
+
+  .cover-subtitle {
+    font-size: 14px;
+    color: rgba(255,255,255,0.45);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 3.5rem;
+    position: relative;
+  }
+
+  .cover-desc {
+    max-width: 500px;
+    font-size: 16px;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.8;
+    font-weight: 300;
+    position: relative;
+    margin-bottom: 4rem;
+  }
+
+  .cover-scroll {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    color: rgba(255,255,255,0.3);
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+
+  .scroll-line {
+    width: 1px;
+    height: 48px;
+    background: linear-gradient(to bottom, rgba(255,255,255,0.3), transparent);
+    animation: scrollPulse 2s ease-in-out infinite;
+  }
+
+  @keyframes scrollPulse {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 0.8; }
+  }
+
+  /* ── NAV ── */
+  .nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(250,248,245,0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 3rem;
+    display: flex;
+    gap: 0;
+    overflow-x: auto;
+  }
+
+  .nav a {
+    font-size: 12px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text3);
+    text-decoration: none;
+    padding: 16px 20px;
+    border-bottom: 2px solid transparent;
+    white-space: nowrap;
+    transition: color 0.2s, border-color 0.2s;
+    font-weight: 500;
+  }
+
+  .nav a:hover { color: var(--text); }
+  .nav a.active { color: var(--rose); border-bottom-color: var(--rose); }
+
+  /* ── LAYOUT ── */
+  .main { max-width: 860px; margin: 0 auto; padding: 5rem 3rem; }
+
+  /* ── SECTION HEADER ── */
+  .section { margin-bottom: 5rem; }
+
+  .section-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 14px;
+  }
+
+  .eyebrow-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 11px;
+    color: var(--rose);
+    letter-spacing: 0.15em;
+  }
+
+  .eyebrow-line {
+    width: 32px;
+    height: 1px;
+    background: var(--rose-mid);
+  }
+
+  .eyebrow-label {
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text3);
+    font-weight: 500;
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(30px, 4vw, 42px);
+    font-weight: 400;
+    color: var(--text);
+    line-height: 1.15;
+    margin-bottom: 16px;
+  }
+
+  .section-title em { font-style: italic; color: var(--rose); }
+
+  .section-intro {
+    font-size: 16px;
+    color: var(--text2);
+    line-height: 1.8;
+    max-width: 680px;
+    margin-bottom: 36px;
+    font-weight: 300;
+  }
+
+  hr.divider {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 0 0 5rem 0;
+  }
+
+  /* ── SNAPSHOT FACTS ── */
+  .fact-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+    margin-bottom: 32px;
+  }
+
+  .fact-cell {
+    background: var(--surface);
+    padding: 24px 20px;
+    text-align: center;
+  }
+
+  .fact-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 32px;
+    font-weight: 500;
+    color: var(--text);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+
+  .fact-num.accent { color: var(--rose); }
+
+  .fact-label {
+    font-size: 12px;
+    color: var(--text3);
+    line-height: 1.5;
+  }
+
+  /* ── BRAND CARDS ── */
+  .brand-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 12px;
+  }
+
+  .brand-card {
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 24px;
+    background: var(--surface);
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+
+  .brand-card:hover {
+    border-color: var(--rose-mid);
+    box-shadow: 0 4px 24px rgba(196,120,90,0.08);
+  }
+
+  .brand-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+  }
+
+  .bc-rose::before { background: linear-gradient(to right, #b8922a, #d4ae62); }
+  .bc-sage::before { background: linear-gradient(to right, #141b3d, #1e2a5e); }
+  .bc-gold::before { background: linear-gradient(to right, #b8922a, #d4ae62); }
+  .bc-muted::before { background: linear-gradient(to right, var(--text3), var(--border)); }
+
+  .brand-tag {
+    display: inline-block;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 20px;
+    margin-bottom: 12px;
+    font-weight: 500;
+  }
+
+  .bt-rose { background: #f5eedc; color: #b8922a; }
+  .bt-sage { background: #e8ecf5; color: #141b3d; }
+  .bt-gold { background: #f5eedc; color: #b8922a; }
+  .bt-muted { background: var(--surface2); color: var(--text3); }
+
+  .brand-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--text);
+    margin-bottom: 8px;
+  }
+
+  .brand-desc {
+    font-size: 13px;
+    color: var(--text2);
+    line-height: 1.7;
+  }
+
+  .brand-note {
+    font-size: 12px;
+    color: var(--rose);
+    margin-top: 10px;
+    font-style: italic;
+  }
+
+  /* ── OBSERVATION CARDS ── */
+  .obs-list { display: flex; flex-direction: column; gap: 16px; }
+
+  .obs-card {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    padding: 22px 24px;
+    border-radius: 14px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+  }
+
+  .obs-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    flex-shrink: 0;
+  }
+
+  .oi-rose { background: #f5eedc; }
+  .oi-sage { background: #e8ecf5; }
+  .oi-gold { background: #f5eedc; }
+
+  .obs-body { flex: 1; }
+  .obs-title { font-size: 14px; font-weight: 500; color: var(--text); margin-bottom: 6px; }
+  .obs-desc { font-size: 13px; color: var(--text2); line-height: 1.7; }
+
+  /* ── MARKET STATS ── */
+  .market-band {
+    background: var(--ink);
+    border-radius: 20px;
+    padding: 40px;
+    margin-bottom: 32px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .market-band::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 60% 80% at 80% 50%, rgba(184,146,42,0.12) 0%, transparent 70%);
+  }
+
+  .market-band-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 13px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--rose-mid);
+    margin-bottom: 28px;
+    position: relative;
+  }
+
+  .market-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    position: relative;
+  }
+
+  .mstat { text-align: center; }
+
+  .mstat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 38px;
+    font-weight: 500;
+    color: white;
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+
+  .mstat-num span { color: var(--rose-mid); }
+
+  .mstat-label {
+    font-size: 12px;
+    color: rgba(255,255,255,0.45);
+    line-height: 1.6;
+  }
+
+  .market-note {
+    margin-top: 28px;
+    padding-top: 24px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    font-size: 13px;
+    color: rgba(255,255,255,0.5);
+    font-style: italic;
+    position: relative;
+    text-align: center;
+  }
+
+  /* ── OPPORTUNITY CARDS ── */
+  .opp-list { display: flex; flex-direction: column; gap: 20px; }
+
+  .opp-card {
+    border-radius: 16px;
+    padding: 28px 32px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .opp-card::after {
+    content: '';
+    position: absolute;
+    top: 0; bottom: 0; left: 0;
+    width: 4px;
+  }
+
+  .oc-rose::after { background: linear-gradient(to bottom, #b8922a, #d4ae62); }
+  .oc-sage::after { background: linear-gradient(to bottom, #141b3d, #1e2a5e); }
+  .oc-gold::after { background: linear-gradient(to bottom, #b8922a, #d4ae62); }
+
+  .opp-label {
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-weight: 500;
+    margin-bottom: 10px;
+    color: var(--text3);
+  }
+
+  .opp-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 500;
+    color: var(--text);
+    margin-bottom: 12px;
+    line-height: 1.3;
+  }
+
+  .opp-body {
+    font-size: 14px;
+    color: var(--text2);
+    line-height: 1.8;
+  }
+
+  .opp-body strong { color: var(--text); font-weight: 500; }
+
+  /* ── DIRECTION ── */
+  .pullquote {
+    background: #f5eedc;
+    border-radius: 20px;
+    padding: 40px 48px;
+    margin-bottom: 32px;
+    position: relative;
+  }
+
+  .pullquote::before {
+    content: '"';
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 120px;
+    color: #d4ae62;
+    opacity: 0.3;
+    position: absolute;
+    top: -10px;
+    left: 32px;
+    line-height: 1;
+  }
+
+  .pullquote-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(18px, 2.5vw, 24px);
+    font-weight: 400;
+    color: var(--ink);
+    line-height: 1.7;
+    position: relative;
+  }
+
+  .pullquote-text strong { font-weight: 600; }
+
+  /* ── MOVES ── */
+  .moves-list { display: flex; flex-direction: column; gap: 14px; }
+
+  .move-card {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    padding: 20px 24px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+  }
+
+  .move-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    font-weight: 500;
+    color: var(--rose-mid);
+    line-height: 1;
+    min-width: 32px;
+    padding-top: 2px;
+  }
+
+  .move-body { flex: 1; }
+  .move-title { font-size: 14px; font-weight: 500; color: var(--text); margin-bottom: 5px; }
+  .move-when { font-size: 11px; color: var(--text3); margin-bottom: 6px; letter-spacing: 0.05em; }
+  .move-desc { font-size: 13px; color: var(--text2); line-height: 1.7; }
+
+  /* ── NEXT STEPS ── */
+  .nextstep-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+
+  .ns-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 24px;
+  }
+
+  .ns-step {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--rose);
+    margin-bottom: 10px;
+  }
+
+  .ns-title {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--text);
+    margin-bottom: 8px;
+  }
+
+  .ns-desc { font-size: 13px; color: var(--text2); line-height: 1.7; }
+
+  .closing-box {
+    background: var(--ink);
+    border-radius: 20px;
+    padding: 48px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .closing-box::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 60% 60% at 50% 50%, rgba(184,146,42,0.1) 0%, transparent 70%);
+  }
+
+  .closing-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 32px;
+    font-weight: 400;
+    color: white;
+    margin-bottom: 16px;
+    position: relative;
+  }
+
+  .closing-title em { font-style: italic; color: var(--rose-mid); }
+
+  .closing-desc {
+    font-size: 15px;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.8;
+    max-width: 500px;
+    margin: 0 auto;
+    font-weight: 300;
+    position: relative;
+  }
+
+  /* ── FOOTER ── */
+  .footer {
+    border-top: 1px solid var(--border);
+    padding: 2rem 3rem;
+    text-align: center;
+  }
+
+  .footer-text {
+    font-size: 12px;
+    color: var(--text3);
+    letter-spacing: 0.06em;
+  }
+
+  /* ── PHILOSOPHY ── */
+  .phil-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    margin-bottom: 24px;
+  }
+
+  .phil-half { padding: 32px; }
+  .phil-half-dark { background: var(--ink); }
+  .phil-half-light { background: var(--surface); }
+
+  .phil-half-label {
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-weight: 500;
+    margin-bottom: 20px;
+  }
+
+  .phil-half-dark .phil-half-label { color: rgba(255,255,255,0.35); }
+  .phil-half-light .phil-half-label { color: #b8922a; }
+
+  .phil-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .phil-list li {
+    font-size: 13px;
+    line-height: 1.6;
+    padding-left: 20px;
+    position: relative;
+    color: rgba(255,255,255,0.5);
+  }
+
+  .phil-list li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: rgba(255,255,255,0.2);
+    font-size: 11px;
+  }
+
+  .phil-list.phil-list-gold li {
+    color: var(--text2);
+  }
+
+  .phil-list.phil-list-gold li::before {
+    content: '→';
+    color: #b8922a;
+  }
+
+  .phil-statement {
+    background: #f5eedc;
+    border: 1px solid #d4ae62;
+    border-radius: 16px;
+    padding: 36px 40px;
+  }
+
+  .phil-statement-eyebrow {
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #b8922a;
+    font-weight: 500;
+    margin-bottom: 14px;
+  }
+
+  .phil-statement-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 19px;
+    line-height: 1.8;
+    color: var(--ink);
+    margin-bottom: 16px;
+  }
+
+  .phil-statement-text strong { font-weight: 600; }
+
+  .phil-statement-close {
+    font-size: 13px;
+    color: var(--text2);
+    font-style: italic;
+    padding-top: 16px;
+    border-top: 1px solid rgba(184,146,42,0.25);
+  }
+
+  /* ── ANIMATIONS ── */
+  .fade-up {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .fade-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 680px) {
+    .main { padding: 3rem 1.5rem; }
+    .nav { padding: 0 1rem; }
+    .fact-row { grid-template-columns: repeat(2, 1fr); }
+    .brand-grid { grid-template-columns: 1fr; }
+    .market-stats { grid-template-columns: repeat(2, 1fr); }
+    .nextstep-grid { grid-template-columns: 1fr; }
+    .phil-row { grid-template-columns: 1fr; }
+    .phil-statement { padding: 24px; }
+    .pullquote { padding: 28px 24px; }
+    .market-band { padding: 28px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<div class="cover">
+  <div class="cover-ornament">A Fresh Perspective</div>
+  <h1 class="cover-title">Beaurev <em>Global</em></h1>
+  <p class="cover-subtitle">Beauty · Wellness · Education · Distribution</p>
+  <p class="cover-desc">We've taken a close look at your business — your brands, your presence, your market, and your potential. What we found is both honest and encouraging. We'd love to walk you through it.</p>
+  <div class="cover-scroll">
+    <div class="scroll-line"></div>
+    Scroll to explore
+  </div>
+</div>
+
+<!-- NAV -->
+<nav class="nav">
+  <a href="#who" class="active">Who You Are</a>
+  <a href="#observations">Observations</a>
+  <a href="#market">The Market</a>
+  <a href="#opportunities">Opportunities</a>
+  <a href="#philosophy">Our Philosophy</a>
+  <a href="#direction">Our View</a>
+  <a href="#nextsteps">Next Steps</a>
+</nav>
+
+<div class="main">
+
+  <!-- 01 WHO YOU ARE -->
+  <div class="section fade-up" id="who">
+    <div class="section-eyebrow">
+      <span class="eyebrow-num">01</span>
+      <span class="eyebrow-line"></span>
+      <span class="eyebrow-label">Who You Are</span>
+    </div>
+    <h2 class="section-title">A 16-year business with the <em>credentials of a regional player</em></h2>
+    <p class="section-intro">Beaurev Global is not a small business. Founded in 2009, you've built four distinct brands, secured exclusive international distribution rights, and established real presence across four countries. That's a serious foundation — and it deserves serious marketing.</p>
+
+    <div class="fact-row">
+      <div class="fact-cell">
+        <div class="fact-num">16</div>
+        <div class="fact-label">Years in business</div>
+      </div>
+      <div class="fact-cell">
+        <div class="fact-num">4</div>
+        <div class="fact-label">Countries — MY, SG, TH, China</div>
+      </div>
+      <div class="fact-cell">
+        <div class="fact-num accent">4</div>
+        <div class="fact-label">Distinct brands under one group</div>
+      </div>
+      <div class="fact-cell">
+        <div class="fact-num">100<span style="font-size:18px">+</span></div>
+        <div class="fact-label">Countries where Pevonia is trusted</div>
+      </div>
+      <div class="fact-cell">
+        <div class="fact-num">3</div>
+        <div class="fact-label">Exclusive distribution markets for Pevonia</div>
+      </div>
+      <div class="fact-cell">
+        <div class="fact-num accent">B2B<span style="font-size:14px"> + </span>B2C</div>
+        <div class="fact-label">Dual revenue model — spas, hotels & direct consumers</div>
+      </div>
+    </div>
+
+    <div class="section-eyebrow" style="margin-top: 36px; margin-bottom: 18px;">
+      <span class="eyebrow-num">——</span>
+      <span class="eyebrow-line"></span>
+      <span class="eyebrow-label">Your Four Brands</span>
+    </div>
+
+    <div class="brand-grid">
+      <div class="brand-card bc-rose">
+        <span class="brand-tag bt-rose">Distribution Anchor</span>
+        <div class="brand-name">BG Care</div>
+        <div class="brand-desc">Official sole distributor of Pevonia for Malaysia, Singapore & Brunei. A US-born professional skincare brand trusted by 5-star hotels in over 100 countries. Your most credible asset — and most under-communicated story.</div>
+        <div class="brand-note">→ The credibility engine of the whole group.</div>
+      </div>
+      <div class="brand-card bc-sage">
+        <span class="brand-tag bt-sage">Own Brand · High Potential</span>
+        <div class="brand-name">BG Wellness</div>
+        <div class="brand-desc">A premium nutraceutical brand — NMN anti-aging, botanical beauty drinks, gut health supplements. Science-backed, own formulation, higher margin. Sitting in the hottest beauty sub-category in Southeast Asia right now.</div>
+        <div class="brand-note">→ The B2C growth opportunity of the group.</div>
+      </div>
+      <div class="brand-card bc-gold">
+        <span class="brand-tag bt-gold">Education · Flywheel Asset</span>
+        <div class="brand-name">BG International College</div>
+        <div class="brand-desc">A beauty and wellness training academy producing certified professionals. Every graduate is a potential advocate for Beaurev products. Every spa owner who sends their staff here becomes a warmer B2B partner.</div>
+        <div class="brand-note">→ The hidden growth multiplier nobody is activating.</div>
+      </div>
+      <div class="brand-card bc-muted">
+        <span class="brand-tag bt-muted">Retail · Consumer</span>
+        <div class="brand-name">Petal & Potions</div>
+        <div class="brand-desc">A retail-facing skincare brand with its own identity. Consumer positioning, direct-to-market. Has room to grow with the right B2C strategy and brand storytelling behind it.</div>
+        <div class="brand-note">→ Needs a clearer consumer narrative.</div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- 02 OBSERVATIONS -->
+  <div class="section fade-up" id="observations">
+    <div class="section-eyebrow">
+      <span class="eyebrow-num">02</span>
+      <span class="eyebrow-line"></span>
+      <span class="eyebrow-label">What We Noticed</span>
+    </div>
+    <h2 class="section-title">The gap between who you <em>are</em> and how you <em>appear</em></h2>
+    <p class="section-intro">We looked at your digital presence honestly. What we found wasn't a reflection of the business you've actually built. These are observations — not criticisms. Every one of them is fixable, and most of them are faster to fix than you might think.</p>
+
+    <div class="obs-list">
+      <div class="obs-card">
+        <div class="obs-icon oi-rose">◈</div>
+        <div class="obs-body">
+          <div class="obs-title">Your most powerful asset — the Pevonia exclusivity — is barely visible online</div>
+          <div class="obs-desc">Holding exclusive distribution rights for a globally trusted professional skincare brand across three countries is a significant competitive moat. But there is almost no content marketing that tells this story. A spa director who doesn't already know Beaurev would never discover this — and they should.</div>
+        </div>
+      </div>
+      <div class="obs-card">
+        <div class="obs-icon oi-sage">◉</div>
+        <div class="obs-body">
+          <div class="obs-title">BG College has no active intake marketing — and that's a real missed opportunity</div>
+          <div class="obs-desc">A beauty training academy in a market where demand for certified professionals is growing fast. But no visible campaigns, no student success stories, no positioning as the regional certification standard. The college exists — but outside your existing network, it's invisible.</div>
+        </div>
+      </div>
+      <div class="obs-card">
+        <div class="obs-icon oi-gold">◇</div>
+        <div class="obs-body">
+          <div class="obs-title">Four strong brands with no unified group story connecting them</div>
+          <div class="obs-desc">BG Care, BG Wellness, BG College, and Petal & Potions each live separately with no obvious narrative thread. A customer who discovers one brand has no natural path to the others. The group is worth more than the sum of its parts — but only if those parts are connected.</div>
+        </div>
+      </div>
+      <div class="obs-card">
+        <div class="obs-icon oi-rose">◆</div>
+        <div class="obs-body">
+          <div class="obs-title">Awards, ESG milestones, and media coverage are not being amplified</div>
+          <div class="obs-desc">You've won awards. You've been featured in Chinapress. You've planted 100 trees with APE Malaysia. You've been named in SISTERS Magazine's top 25. All of this builds real credibility — but it lives only on your website. None of it is being shared where your prospects and customers can see it.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- 03 MARKET -->
+  <div class="section fade-up" id="market">
+    <div class="section-eyebrow">
+      <span class="eyebrow-num">03</span>
+      <span class="eyebrow-line"></span>
+      <span class="eyebrow-label">The Market You're In</span>
+    </div>
+    <h2 class="section-title">You're in the <em>right place</em> at the right time</h2>
+    <p class="section-intro">The beauty and wellness market in Malaysia and Southeast Asia is in a period of genuine, sustained growth. The numbers below are not hype — they're verified market data. Beaurev is sitting on top of a rising tide. The question is whether you're positioned to capture it.</p>
+
+    <div class="market-band">
+      <div class="market-band-title">Market at a Glance</div>
+      <div class="market-stats">
+        <div class="mstat">
+          <div class="mstat-num">16<span>%</span></div>
+          <div class="mstat-label">Malaysia beauty market CAGR 2024–2028 — highest in all of Southeast Asia</div>
+        </div>
+        <div class="mstat">
+          <div class="mstat-num">$21<span>B</span></div>
+          <div class="mstat-label">SEA cosmetics market projected size by 2033, up from $14.5B today</div>
+        </div>
+        <div class="mstat">
+          <div class="mstat-num">70<span>%</span></div>
+          <div class="mstat-label">Asia's share of global beauty supplements market value — the world's largest segment</div>
+        </div>
+        <div class="mstat">
+          <div class="mstat-num">12<span>%</span></div>
+          <div class="mstat-label">Global beauty ingestibles CAGR through 2034 — BG Wellness's exact category</div>
+        </div>
+      </div>
+      <div class="market-note">"Southeast Asia is the market to watch" — Euromonitor International, 2025</div>
+    </div>
+
+    <div class="obs-card" style="background: #f5eedc; border-color: #d4ae62;">
+      <div class="obs-icon oi-rose">→</div>
+      <div class="obs-body">
+        <div class="obs-title" style="color: #b8922a;">What this means for Beaurev</div>
+        <div class="obs-desc">You're in the fastest growing beauty market in Southeast Asia. The question isn't whether this market will grow — it will. The question is whether Beaurev captures that growth, or watches it flow to others who are more visible, more vocal, and more present.</div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- 04 OPPORTUNITIES -->
+  <div class="section fade-up" id="opportunities">
+    <div class="section-eyebrow">
+      <span class="eyebrow-num">04</span>
+      <span class="eyebrow-line"></span>
+      <span class="eyebrow-label">Where We See Opportunity</span>
+    </div>
+    <h2 class="section-title">Three doors worth <em>opening</em></h2>
+    <p class="section-intro">These are the areas where we believe Beaurev has specific, actionable opportunities — based on your actual assets, the gaps we identified, and the market timing right now.</p>
+
+    <div class="opp-list">
+      <div class="opp-card oc-rose">
+        <div class="opp-label">Highest Potential · Immediate</div>
+        <div class="opp-title">BG College as a partner acquisition machine — the flywheel nobody is turning</div>
+        <div class="opp-body">Here's something worth considering: <strong>BG International College isn't just an education business — it's a B2B distribution engine.</strong> Every therapist trained at BG College becomes someone who knows, trusts, and recommends Beaurev and Pevonia products. Every spa owner who sends their staff there becomes a warmer partner prospect. Marketing BG College aggressively — intake campaigns, certification events, therapist success stories — grows the college and the distribution network at the same time. One marketing dollar doing double work. <strong>This flywheel is sitting idle. It's the single biggest immediate opportunity in the group.</strong></div>
+      </div>
+
+      <div class="opp-card oc-sage">
+        <div class="opp-label">Market Timing · Own Brand Advantage</div>
+        <div class="opp-title">BG Wellness riding the beauty-from-within wave — right product, right moment</div>
+        <div class="opp-body">Beauty supplements — ingestible skincare, collagen drinks, NMN anti-aging — is the hottest sub-category in SEA beauty right now, and <strong>Asia commands 70% of the global market value.</strong> BG Wellness is already positioned here with your own formulation — higher margin, no licensor dependency. With the right marketing — wellness KOL partnerships, clinical result storytelling, and a brand face that connects emotionally with Malaysian consumers — <strong>this brand has the potential to become the growth engine of the whole group.</strong> The window to establish early credibility in this category is open now.</div>
+      </div>
+
+      <div class="opp-card oc-gold">
+        <div class="opp-label">Credibility Unlock · New Client Tier</div>
+        <div class="opp-title">The hotel spa market in Malaysia doesn't know you're here — yet</div>
+        <div class="opp-body">Pevonia is trusted by 5-star hotels globally. You hold exclusive distribution rights for Malaysia, Singapore, and Brunei. <strong>Most hotel spa directors in the region probably don't know there's a local exclusive partner they can work with directly.</strong> They may be importing through grey channels, using inferior alternatives, or simply not using Pevonia at all because nobody reached out. A focused outreach campaign to hotel F&B and spa directors in KL, Penang, and Singapore is one of the highest-ROI moves available to Beaurev right now — and the competition is not doing it.</div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- 04.5 PHILOSOPHY -->
+  <div class="section fade-up" id="philosophy">
+    <div class="section-eyebrow">
+      <span class="eyebrow-num">05</span>
+      <span class="eyebrow-line"></span>
+      <span class="eyebrow-label">Before We Talk About Marketing</span>
+    </div>
+    <h2 class="section-title">The most expensive marketing mistake<br>is starting <em>before you're ready.</em></h2>
+    <p class="section-intro">We've seen it many times. A business invests in campaigns, content, ads — and the results are underwhelming. Not because the execution was poor. Because the foundation wasn't there. Before you market anything, the most important question is simple: does the world understand, clearly and consistently, who you are?</p>
+
+    <div class="phil-row">
+      <div class="phil-half phil-half-dark">
+        <div class="phil-half-label">Without the right foundation</div>
+        <ul class="phil-list">
+          <li>Budget spent on campaigns that don't convert</li>
+          <li>Content that doesn't connect with the right people</li>
+          <li>A brand that looks different everywhere it appears</li>
+          <li>Partners who can't explain what you do</li>
+          <li>Marketing that has to start over every time</li>
+        </ul>
+      </div>
+      <div class="phil-half phil-half-light">
+        <div class="phil-half-label">With clarity from the start</div>
+        <ul class="phil-list phil-list-gold">
+          <li>Every campaign builds on the last one</li>
+          <li>Content that finds exactly the right audience</li>
+          <li>A brand that sounds like itself — everywhere</li>
+          <li>Partners who choose you because they understand your value</li>
+          <li>Marketing that compounds over time</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="phil-statement">
+      <div class="phil-statement-eyebrow">Our starting point — always</div>
+      <div class="phil-statement-text">Before any campaign, any content, any budget — we ask the questions that most people skip. Who is this brand, really? What does it stand for that no competitor can claim? Who is it speaking to, and what do those people actually need to hear? <strong>The answers to these questions are worth more than any campaign.</strong> Getting them right at the start is the difference between marketing that builds something and marketing that simply spends something.</div>
+      <div class="phil-statement-close">This is where we'd want to begin with Beaurev — and we'd love the chance to find out.</div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- 06 OUR VIEW -->
+  <div class="section fade-up" id="direction">
+    <div class="section-eyebrow">
+      <span class="eyebrow-num">06</span>
+      <span class="eyebrow-line"></span>
+      <span class="eyebrow-label">Our View</span>
+    </div>
+    <h2 class="section-title">The frame we'd put around <em>everything</em></h2>
+    <p class="section-intro">If we had to distil our perspective into one thought, this is it.</p>
+
+    <div class="pullquote">
+      <div class="pullquote-text">You have a 16-year-old company with real credentials, real international partnerships, and real presence in four countries. But your marketing presence makes you look like a company that started last year. <strong>The gap between who you actually are and how you appear — that is your biggest challenge, and your biggest opportunity.</strong> Close that gap and you don't just get more partners. You attract bigger partners, better brands, and you become the obvious first call in Southeast Asian professional beauty.</div>
+    </div>
+
+    <div class="section-eyebrow" style="margin-top: 36px; margin-bottom: 18px;">
+      <span class="eyebrow-num">——</span>
+      <span class="eyebrow-line"></span>
+      <span class="eyebrow-label">Where We'd Start</span>
+    </div>
+
+    <div class="moves-list">
+      <div class="move-card">
+        <div class="move-num">1</div>
+        <div class="move-body">
+          <div class="move-when">Start immediately</div>
+          <div class="move-title">BG College intake campaign — activate the warm audience first</div>
+          <div class="move-desc">Email your existing spa and salon partners first — warm audience, established trust. Then extend to paid social targeting beauty professionals in Malaysia, Singapore, and Thailand. The fastest ROI move available because the audience already knows you.</div>
+        </div>
+      </div>
+      <div class="move-card">
+        <div class="move-num">2</div>
+        <div class="move-body">
+          <div class="move-when">Start immediately</div>
+          <div class="move-title">Beaurev Global LinkedIn — the group story told consistently</div>
+          <div class="move-desc">One active LinkedIn company page. Consistent weekly content: Pevonia partnership updates, BG College intake news, team milestones, award announcements, China expansion moments. Target: spa directors, hotel F&B managers, pharmacy buyers, beauty industry professionals across SEA. B2B credibility, built week by week.</div>
+        </div>
+      </div>
+      <div class="move-card">
+        <div class="move-num">3</div>
+        <div class="move-body">
+          <div class="move-when">Month 1–2</div>
+          <div class="move-title">Hotel spa outreach — Pevonia as the door-opener</div>
+          <div class="move-desc">Identify hotel spa directors and F&B managers at 4 and 5-star properties in KL, Penang, Johor, and Singapore. Direct LinkedIn and email outreach: credibility-led, no hard sell. The brand earns the conversation.</div>
+        </div>
+      </div>
+      <div class="move-card">
+        <div class="move-num">4</div>
+        <div class="move-body">
+          <div class="move-when">Month 2–3</div>
+          <div class="move-title">BG Wellness consumer campaign — education, not promotion</div>
+          <div class="move-desc">Partner with Malaysian wellness KOLs — not beauty influencers, but wellness practitioners, nutritionists, active lifestyle creators. Educational content format: what beauty supplements actually do, why BG Wellness is different. The beauty supplement category is won through education. This is how the category leaders in Korea and Japan built their brands.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- 06 NEXT STEPS -->
+  <div class="section fade-up" id="nextsteps">
+    <div class="section-eyebrow">
+      <span class="eyebrow-num">07</span>
+      <span class="eyebrow-line"></span>
+      <span class="eyebrow-label">What Comes Next</span>
+    </div>
+    <h2 class="section-title">We're not here to pitch. <em>We're here to listen.</em></h2>
+    <p class="section-intro">This document is our way of showing you how we think. We've done our homework — but you know your business better than anyone. The real conversation starts when we hear your perspective.</p>
+
+    <div class="nextstep-grid">
+      <div class="ns-card">
+        <div class="ns-step">Conversation First</div>
+        <div class="ns-title">Tell us where you want to grow</div>
+        <div class="ns-desc">Of the four brands — BG Care, BG Wellness, BG College, Petal & Potions — which one do you want to move fastest in the next 12 months? That's where we'd focus our energy first.</div>
+      </div>
+      <div class="ns-card">
+        <div class="ns-step">Then a Plan</div>
+        <div class="ns-title">A proposal built around your actual priority</div>
+        <div class="ns-desc">Whatever you tell us matters most — that becomes the scope. We'd come back within 48 hours with a focused, specific plan. No generic proposals. No padded decks. Just the work that moves the needle on your priority.</div>
+      </div>
+    </div>
+
+    <div class="closing-box">
+      <div class="closing-title">The best version of <em>Beaurev</em> is already here.</div>
+      <div class="closing-desc">It just needs to be seen. We'd love to help you close that gap — and we think the timing has never been better to do it.</div>
+    </div>
+  </div>
+
+</div>
+
+<div class="footer">
+  <div class="footer-text">Beaurev Global · Marketing Perspective · 2026</div>
+</div>
+
+<script>
+  // Scroll-based fade-in
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(el => {
+      if (el.isIntersecting) {
+        el.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.08 });
+
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+  // Active nav
+  const sections = document.querySelectorAll('.section[id]');
+  const navLinks = document.querySelectorAll('.nav a');
+
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => {
+      if (s.getBoundingClientRect().top < 140) current = s.id;
+    });
+    navLinks.forEach(a => {
+      a.classList.remove('active');
+      if (a.getAttribute('href') === '#' + current) a.classList.add('active');
+    });
+  });
+
+  navLinks.forEach(a => {
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      const el = document.getElementById(a.getAttribute('href').slice(1));
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+</script>
+</body>
+</html>
